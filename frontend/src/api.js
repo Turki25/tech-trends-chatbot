@@ -112,16 +112,16 @@
 //----
 // const BASE_URL = "https://sultan-9953-aoidm.eastus2.inference.ml.azure.com/score";
 const BASE_URL = "https://api-for-web.azure-api.net/score";
-const DEPLOYMENT_NAME = "sultan-9953-aoidm-1";
+const DEPLOYMENT_NAME = "sultan-9953-msxio-1";
+const apiKey1 = import.meta.env.VITE_API_KEY;
 
+console.log(apiKey1);
 // Reusable function for scoring
-async function sendChatMessage(payload, apiKey = "1nzrvr9HhlNiCDJl0moeSVkbGhokq47e") {
+async function sendChatMessage(payload, apiKey = apiKey1) {
   if (!apiKey) {
     throw new Error("An API key must be provided to invoke the endpoint.");
   }
 
-  console.log("API Key:", apiKey);
-  console.log("Payload:", payload);
 
   const headers = new Headers({
     "Authorization": `Bearer ${apiKey}`,
@@ -149,7 +149,8 @@ async function sendChatMessage(payload, apiKey = "1nzrvr9HhlNiCDJl0moeSVkbGhokq4
       console.error("Request Failed!");
       console.error("Payload Sent:", payload);
       console.error("Response Headers:", [...response.headers.entries()]);
-      throw new Error(`Request failed with status code ${response.status}`);
+      // throw new Error(`Request failed with status code ${response.status}`);
+      return {"answer":"I'm not sure I understand your request. Could you clarify or provide more details? I'll do my best to assist you!","arima_forecast":null,"candlestick_charts":null,"ma_20":null};
     }
 
     // Parse the response as JSON after printing the raw response
@@ -159,7 +160,9 @@ async function sendChatMessage(payload, apiKey = "1nzrvr9HhlNiCDJl0moeSVkbGhokq4
     return parsedResponse;
   } catch (error) {
     console.error("Error during scoring:", error);
-    throw error; // Re-throw for caller to handle
+    return {"answer":"I'm not sure I understand your request. Could you clarify or provide more details? I'll do my best to assist you!","arima_forecast":null,"candlestick_charts":null,"ma_20":null};
+
+    // throw error; // Re-throw for caller to handle
   }
 }
 
