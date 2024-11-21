@@ -112,7 +112,7 @@
 //----
 // const BASE_URL = "https://sultan-9953-aoidm.eastus2.inference.ml.azure.com/score";
 const BASE_URL = "https://api-for-web.azure-api.net/score";
-const DEPLOYMENT_NAME = "sultan-9953-msxio-1";
+const DEPLOYMENT_NAME = "sultan-9953-xuadj-1";
 const apiKey1 = import.meta.env.VITE_API_KEY;
 
 console.log(apiKey1);
