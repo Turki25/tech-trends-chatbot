@@ -111,7 +111,10 @@
 // export default {sendChatMessage};
 //----
 // const BASE_URL = "https://sultan-9953-aoidm.eastus2.inference.ml.azure.com/score";
-const BASE_URL = "https://api-for-web-v1-0-4.azure-api.net/score";
+// const BASE_URL = "https://api-for-web-v1-0-4.azure-api.net/score";
+
+const BASE_URL = "https://api5010.azure-api.net/score";
+
 const DEPLOYMENT_NAME = "sultan-9953-zprfr-1";
 const apiKey1 = import.meta.env.VITE_API_KEY;
 
